@@ -2,12 +2,12 @@
 
 from keras.layers import Dense, Dropout
 from keras.models import Model
-from keras_contrib.applications.densenet import DenseNetImageNet121
+from keras_contrib.applications.densenet import DenseNetImageNet121,DenseNetImageNet169
 import keras_contrib
 
 
 def load_model(modelPath):
-    model = build_model(DenseNetImageNet121)
+    model = build_model(DenseNetImageNet169)
     model.load_weights(modelPath)
     #print(model.summary)
     return model
@@ -26,7 +26,7 @@ def build_model(crt_densenet_function):
 
     x = base_model.output
     dropout = Dropout(0.1)(x)
-    predictions = Dense(14, activation='sigmoid')(dropout)
+    predictions = Dense(1, activation='sigmoid')(dropout)
     model = Model(inputs=base_model.input, outputs=predictions)
     return model
 
