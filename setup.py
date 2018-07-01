@@ -9,7 +9,7 @@ setup(name='MURAUtils',
       author_email='iasotm@yahoo.com',
       url='https://github.com/Stexan/MURAUtils',
       license='MIT',
-      install_requires=['torch'],
+      install_requires=['keras'],
       classifiers=[
                    ''
                   ]
